@@ -8,15 +8,15 @@ pywin_check = subprocess.run(["pip", "show", "--quiet", "pywin32"])
 
 if keyboard_check.returncode or pywin_check.returncode != 0:
     subprocess.call("cls", shell=True)
-    print("Dependancies not found, installing in 3 seconds")
+    print("Certain dependancies not found, installing in 3 seconds")
     sleep(3)
     subprocess.call("cls", shell=True)
-    print("Installing keyboard dependancy")
+    print("Installing keyboard")
     subprocess.run(["pip", "install", "keyboard"])
-    print("Installing pywin32 dependancy")
+    print("Installing pywin32")
     subprocess.run(["pip", "install", "pywin32"])
     subprocess.call("cls", shell=True)
-    print("Please restart the program")
+    print("Please restart the script! Closing in 30 seconds...")
     sleep(30)
     exit()
 
@@ -42,6 +42,7 @@ def autoclick():
         randomclicks = uniform(0.025, 0.095)
         sleep(randomclicks)
 
+subprocess.call("cls", shell=True)
 print(f"""Autoclicker
   ____  _   _ ___ __  __ ___ ____  
  / ___|| | | |_ _|  \/  |_ _/ ___| 
@@ -51,8 +52,8 @@ print(f"""Autoclicker
 
 https://github.com/Shinigamiixd
 
-Hold {Click_Button} to autoclick
-Press {Stop_Script_Button} to stop the script""")
+Hold "{Click_Button}" to autoclick
+Press "{Stop_Script_Button}" to stop the script""")
 
 while keyboard.is_pressed(Stop_Script_Button) == False: 
     if keyboard.is_pressed(Click_Button) == True: 
