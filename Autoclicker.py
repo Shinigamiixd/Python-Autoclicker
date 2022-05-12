@@ -1,29 +1,19 @@
 import subprocess
 from time import sleep
-
-# THIS IS A FIRST TIME DEPENDANCIES INSTALLATION
-
-keyboard_check = subprocess.run(["pip", "show", "--quiet", "keyboard"])
-pywin_check = subprocess.run(["pip", "show", "--quiet", "pywin32"])
-
-if keyboard_check.returncode or pywin_check.returncode != 0:
-    subprocess.call("cls", shell=True)
+from random import uniform, randrange
+try:
+    import win32api, win32con
+    import keyboard
+except ImportError:
     print("Certain dependancies not found, installing in 3 seconds")
     sleep(3)
-    subprocess.call("cls", shell=True)
-    print("Installing keyboard")
-    subprocess.run(["pip", "install", "keyboard"])
-    print("Installing pywin32")
     subprocess.run(["pip", "install", "pywin32"])
-    subprocess.call("cls", shell=True)
+    subprocess.run(["pip", "install", "keyboard"])
     print("Please restart the script! Closing in 30 seconds...")
     sleep(30)
     exit()
 
-import keyboard
-import win32api, win32con
-from random import uniform, randrange
-
+    
 # KEYBINDS:
 Click_Button = "r" # HOLD THIS TO AUTOCLICK
 Stop_Script_Button = "Pause" # PRESS THIS TO STOP THE AUTOCLICKER COMPLETELY
